@@ -1,0 +1,34 @@
+/* =Media Query */
+@mixin mediaQueryMx($canvas){
+
+	@if $canvas == lgPlus {
+		@media only screen and (max-width: $lgPlus){
+			@content;
+		}
+	}
+	@else if $canvas == mdPlus {
+		@media only screen and (max-width: $mdPlus){
+			@content;
+		}
+	}
+	@else if $canvas == smPlus {
+		@media only screen and (max-width: $smPlus){
+			@content;
+		}
+	}
+	@else if $canvas == xsPlus {
+		@media only screen and (max-width: $xsPlus){
+			@content;
+		}
+	}
+	@else if $canvas == xxsPlus {
+		@media only screen and (max-width: $xxsPlus){
+			@content;
+		}
+	}
+	@else if $canvas == xxxsPlus {
+		@media only screen and (max-width: $xxxsPlus){
+			@content;
+		}
+	}
+}
