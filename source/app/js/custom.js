@@ -1,15 +1,31 @@
-(function ($) {
+(function (window, document) {
     'use strict';
-    var $yearTab = $('.years-tab');
-    var $compDetail = $('.comp-detail');
 
-    $yearTab.on('click', function(){
-        var selectedYear = $(this).data('year');
-        $yearTab.removeClass('active');
-        $compDetail.removeClass('active');
-        $('.years-tab[data-year="'+ selectedYear+'"]').addClass('active');
-        $('.year-heading[data-year="'+ selectedYear+'"]').addClass('active');
-        $('.comp-detail[data-year="'+ selectedYear+'"]').toggleClass('active');
-    })
+    var yearTabs = document.querySelectorAll('.years-tab');
+    var compDetails = document.querySelectorAll('.comp-detail');
 
-}(jQuery));
+    function deativeItems(items) {
+        items.forEach(function (item) {
+            return item.classList.remove('active');
+        });
+    }
+
+    function ativeItems(items) {
+        items.forEach(function (item) {
+            return item.classList.add('active');
+        });
+    }
+
+    function handleEvent() {
+        var selectedYear = this.dataset.year;
+        deativeItems(yearTabs);
+        deativeItems(compDetails);
+        ativeItems(document.querySelectorAll('.years-tab[data-year="' + selectedYear + '"]'));
+        ativeItems(document.querySelectorAll('.comp-detail[data-year="' + selectedYear + '"]'));
+    }
+
+    yearTabs.forEach(function (item) {
+        return item.addEventListener('click', handleEvent);
+    });
+
+}(window, document, undefined));
